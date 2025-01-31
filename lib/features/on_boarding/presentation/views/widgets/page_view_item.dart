@@ -8,59 +8,65 @@ class PageViewItem extends StatelessWidget {
     required this.backgroundImage,
     required this.title,
     required this.subtitle,
+    required this.isVisible,
   });
 
   final String image, backgroundImage;
   final Widget title;
   final String subtitle;
-
+  final bool isVisible;
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.5,
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: SvgPicture.asset(
-                backgroundImage,
-                fit: BoxFit.fill,
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height * 0.5,
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: SvgPicture.asset(
+                  backgroundImage,
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            Positioned(
-              right: 0,
-              left: 0,
-              bottom: 0,
-              child: SvgPicture.asset(
-                image,
+              Positioned(
+                right: 0,
+                left: 0,
+                bottom: 0,
+                child: SvgPicture.asset(
+                  image,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: const Text(
-                'تخط',
+              Visibility(
+                visible: isVisible,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: const Text(
+                    'تخط',
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      SizedBox(
-        height: 64,
-      ),
-      title,
-      SizedBox(
-        height: 24,
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
+        SizedBox(
+          height: 64,
         ),
-        child: Text(
-          subtitle,
-          textAlign: TextAlign.center,
+        title,
+        SizedBox(
+          height: 24,
         ),
-      )
-    ]);
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.center,
+          ),
+        )
+      ],
+    );
   }
 }
