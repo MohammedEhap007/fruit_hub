@@ -5,6 +5,8 @@ import 'package:fruit_hub_app/core/utils/app_colors.dart';
 import 'package:fruit_hub_app/core/widgets/custom_button.dart';
 import 'package:fruit_hub_app/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 
+import '../../../../auth/presentation/views/login_view.dart';
+
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
 
@@ -64,7 +66,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               horizontal: kHorizontalPadding,
             ),
             child: CustomButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  LoginView.routeName,
+                );
+              },
               text: 'ابدأ الان',
             ),
           ),
