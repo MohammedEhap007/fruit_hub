@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
-class DontHavaAnAccountWidget extends StatelessWidget {
-  const DontHavaAnAccountWidget({
+class DontHaveAnAccountWidget extends StatelessWidget {
+  const DontHaveAnAccountWidget({
     super.key,
   });
 
