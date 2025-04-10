@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_app/constants.dart';
+import 'package:fruit_hub_app/core/widgets/custom_button.dart';
 import 'package:fruit_hub_app/core/widgets/custom_text_form_field.dart';
+import 'package:fruit_hub_app/features/auth/presentation/views/widgets/have_an_account_widget.dart';
 import 'package:fruit_hub_app/features/auth/presentation/views/widgets/terms_and_conditions_widget.dart';
 
 class SignupViewBody extends StatelessWidget {
@@ -43,9 +45,18 @@ class SignupViewBody extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            TermsAndConditionsWidget(
-              onChanged: (value) {},
-            )
+            TermsAndConditionsWidget(),
+            SizedBox(
+              height: 30,
+            ),
+            CustomButton(
+              onPressed: () {},
+              text: 'إنشاء حساب جديد',
+            ),
+            SizedBox(
+              height: 26,
+            ),
+            HaveAnAccountWidget(),
           ],
         ),
       ),
