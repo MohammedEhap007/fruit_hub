@@ -13,6 +13,7 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
+    String name,
     String email,
     String password,
   ) async {
