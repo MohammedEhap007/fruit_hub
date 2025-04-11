@@ -5,7 +5,7 @@ import 'package:fruit_hub_app/features/on_boarding/presentation/views/on_boardin
 
 import '../../../../../constants.dart';
 import '../../../../../core/services/shared_preferences_singleton.dart';
-import '../../../../auth/presentation/views/login_view.dart';
+import '../../../../auth/presentation/views/signin_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -49,7 +49,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       () {
         if (isOnBoardingSeen) {
           if (mounted) {
-            Navigator.pushReplacementNamed(context, LoginView.routeName);
+            Navigator.pushReplacementNamed(context, SigninView.routeName);
           }
         } else {
           if (mounted) {
