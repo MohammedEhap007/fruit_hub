@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit_hub_app/core/helper/on_generate_routes.dart';
+import 'package:fruit_hub_app/core/services/get_it_service.dart';
 import 'package:fruit_hub_app/core/services/shared_preferences_singleton.dart';
 import 'package:fruit_hub_app/core/utils/app_colors.dart';
 import 'package:fruit_hub_app/features/splash/presentation/views/splash_view.dart';
@@ -16,6 +17,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Prefs.init();
+  setupGetIt();
   runApp(const FruitHub());
 }
 
