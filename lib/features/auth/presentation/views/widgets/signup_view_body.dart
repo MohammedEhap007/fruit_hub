@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub_app/constants.dart';
+import 'package:fruit_hub_app/core/helper/build_error_bar.dart';
 import 'package:fruit_hub_app/core/widgets/custom_button.dart';
 import 'package:fruit_hub_app/core/widgets/custom_text_form_field.dart';
 import 'package:fruit_hub_app/core/widgets/password_field.dart';
@@ -20,6 +21,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   late String name, email, password;
+  late bool isTermsAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,11 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               SizedBox(
                 height: 16,
               ),
-              TermsAndConditionsWidget(),
+              TermsAndConditionsWidget(
+                onTermsAccepted: (value) {
+                  isTermsAccepted = value;
+                },
+              ),
               SizedBox(
                 height: 30,
               ),
@@ -71,11 +77,20 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context.read<SignupCubit>().createUserWithEmailAndPassword(
-                          name,
-                          email,
-                          password,
-                        );
+                    if (isTermsAccepted) {
+                      context
+                          .read<SignupCubit>()
+                          .createUserWithEmailAndPassword(
+                            name,
+                            email,
+                            password,
+                          );
+                    } else {
+                      buildErrorBar(
+                        context,
+                        'يجب الموافقة على الشروط والاحكام',
+                      );
+                    }
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
