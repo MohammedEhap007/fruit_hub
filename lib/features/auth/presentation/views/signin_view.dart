@@ -10,7 +10,7 @@ import '../../domain/repos/auth_repo.dart';
 class SigninView extends StatelessWidget {
   const SigninView({super.key});
 
-  static const routeName = 'login';
+  static const routeName = 'signin';
 
   @override
   Widget build(BuildContext context) {
