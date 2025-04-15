@@ -48,15 +48,35 @@
 	<key>GIDClientID</key>
 	<string>65240847156-c37gtpk1if93bma0dh809dpbvor5q9d6.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
-<array>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.65240847156-c37gtpk1if93bma0dh809dpbvor5q9d6</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
 	<dict>
-		<key>CFBundleTypeRole</key>
-		<string>Editor</string>
 		<key>CFBundleURLSchemes</key>
 		<array>
-			<string>com.googleusercontent.apps.65240847156-c37gtpk1if93bma0dh809dpbvor5q9d6</string>
+		<string>fb1152361046935128</string>
 		</array>
 	</dict>
-</array>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1152361046935128</string>
+	<key>FacebookClientToken</key>
+	<string>df4703d59beaad1c3fe8ca52afa25bfa</string>
+	<key>FacebookDisplayName</key>
+	<string>Fruits Hub</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	<string>fbapi</string>
+	<string>fb-messenger-share-api</string>
+	</array>
 </dict>
 </plist>

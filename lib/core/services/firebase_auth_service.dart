@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:crypto/crypto.dart';
@@ -96,17 +97,6 @@ class FirebaseAuthService {
     return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
   }
 
-  Future<User> signInWithFacebook() async {
-    final LoginResult loginResult = await FacebookAuth.instance.login();
-
-    final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
-
-    return (await FirebaseAuth.instance
-            .signInWithCredential(facebookAuthCredential))
-        .user!;
-  }
-
   String generateNonce([int length = 32]) {
     final charset =
         '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
@@ -139,6 +129,43 @@ class FirebaseAuthService {
     );
 
     return (await FirebaseAuth.instance.signInWithCredential(oauthCredential))
+        .user!;
+  }
+
+  Future<User> signInWithFacebook() async {
+    final rawNonce = generateNonce();
+    final nonce = sha256ofString(rawNonce);
+    final LoginResult loginResult =
+        await FacebookAuth.instance.login(nonce: nonce);
+    OAuthCredential facebookAuthCredential;
+
+    if (Platform.isIOS) {
+      switch (loginResult.accessToken!.type) {
+        case AccessTokenType.classic:
+          final token = loginResult.accessToken as ClassicToken;
+          facebookAuthCredential = FacebookAuthProvider.credential(
+            token.authenticationToken!,
+          );
+          break;
+
+        case AccessTokenType.limited:
+          final token = loginResult.accessToken as LimitedToken;
+          facebookAuthCredential = OAuthCredential(
+            providerId: 'facebook.com',
+            signInMethod: 'oauth',
+            idToken: token.tokenString,
+            rawNonce: rawNonce,
+          );
+          break;
+      }
+    } else {
+      facebookAuthCredential = FacebookAuthProvider.credential(
+        loginResult.accessToken!.tokenString,
+      );
+    }
+
+    return (await FirebaseAuth.instance
+            .signInWithCredential(facebookAuthCredential))
         .user!;
   }
 }
