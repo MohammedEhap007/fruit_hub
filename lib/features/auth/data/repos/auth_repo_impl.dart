@@ -110,4 +110,7 @@ class AuthRepoImpl extends AuthRepo {
       );
     }
   }
+
+  @override
+  Future addUserData({required UserEntity user}) async {}
 }
