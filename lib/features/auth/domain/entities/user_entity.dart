@@ -1,19 +1,19 @@
 class UserEntity {
   final String name;
   final String email;
-  final String userId;
+  final String uId;
 
   UserEntity({
     required this.name,
     required this.email,
-    required this.userId,
+    required this.uId,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
       'email': email,
-      'userId': userId,
+      'uId': uId,
     };
   }
 }
