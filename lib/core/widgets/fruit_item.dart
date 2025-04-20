@@ -9,8 +9,6 @@ class FruitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 285,
       decoration: ShapeDecoration(
         color: const Color(0xFFF3F5F7),
         shape: RoundedRectangleBorder(
@@ -19,77 +17,75 @@ class FruitItem extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Positioned(
-            top: 0,
-            right: 0,
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite_outline,
-                )),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.favorite_outline,
+            ),
           ),
-          Positioned.fill(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                Image.asset(
+          Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              Flexible(
+                child: Image.asset(
                   Assets.imagesWatermelonTest,
                 ),
-                const SizedBox(
-                  height: 24,
-                ),
-                ListTile(
-                  isThreeLine: true,
-                  title: Text(
-                    'بطيخ',
-                    textAlign: TextAlign.right,
-                    style: TextStyles.semiBold16.copyWith(
-                      color: Color(0XFF0C0D0D),
-                    ),
-                  ),
-                  subtitle: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '20جنية ',
-                          style: TextStyles.bold13.copyWith(
-                            color: AppColors.secondaryColor,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '/',
-                          style: TextStyles.bold13.copyWith(
-                            color: AppColors.lightSecondaryColor,
-                          ),
-                        ),
-                        TextSpan(
-                          text: ' ',
-                          style: TextStyles.semiBold13.copyWith(
-                            color: AppColors.secondaryColor,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'الكيلو',
-                          style: TextStyles.semiBold13.copyWith(
-                            color: AppColors.lightSecondaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.right,
-                  ),
-                  trailing: const CircleAvatar(
-                    backgroundColor: AppColors.primaryColor,
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
+                isThreeLine: true,
+                title: Text(
+                  'بطيخ',
+                  textAlign: TextAlign.right,
+                  style: TextStyles.semiBold16.copyWith(
+                    color: Color(0XFF0C0D0D),
                   ),
                 ),
-              ],
-            ),
+                subtitle: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: '20جنية ',
+                        style: TextStyles.bold13.copyWith(
+                          color: AppColors.secondaryColor,
+                        ),
+                      ),
+                      TextSpan(
+                        text: '/',
+                        style: TextStyles.bold13.copyWith(
+                          color: AppColors.lightSecondaryColor,
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' ',
+                        style: TextStyles.semiBold13.copyWith(
+                          color: AppColors.secondaryColor,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'الكيلو',
+                        style: TextStyles.semiBold13.copyWith(
+                          color: AppColors.lightSecondaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.right,
+                ),
+                trailing: const CircleAvatar(
+                  backgroundColor: AppColors.primaryColor,
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
