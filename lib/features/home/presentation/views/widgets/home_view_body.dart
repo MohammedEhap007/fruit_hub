@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub_app/constants.dart';
 import 'package:fruit_hub_app/core/widgets/search_text_field.dart';
 import 'package:fruit_hub_app/features/home/presentation/views/widgets/custom_home_app_bar.dart';
-import 'package:fruit_hub_app/features/home/presentation/views/widgets/featured_item.dart';
+import 'package:fruit_hub_app/features/home/presentation/views/widgets/featured_items_list.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -14,6 +14,7 @@ class HomeViewBody extends StatelessWidget {
         horizontal: kHorizontalPadding,
       ),
       child: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -29,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
                 SizedBox(
                   height: 12.0,
                 ),
-                FeaturedItem(),
+                FeaturedItemsList(),
               ],
             ),
           ),
