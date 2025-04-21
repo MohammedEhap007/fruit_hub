@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_hub_app/core/utils/app_images.dart';
 import 'package:fruit_hub_app/core/utils/app_text_styles.dart';
+import 'package:fruit_hub_app/core/widgets/notification_widget.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
   const CustomHomeAppBar({super.key});
@@ -34,18 +34,7 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
         textAlign: TextAlign.right,
       ),
-      trailing: SizedBox(
-        width: 34,
-        height: 34,
-        child: CircleAvatar(
-          backgroundColor: Color(0XFFEEF8ED),
-          child: ClipOval(
-            child: SvgPicture.asset(
-              Assets.imagesNotification,
-            ),
-          ),
-        ),
-      ),
+      trailing: NotificationWidget(),
     );
   }
 }
