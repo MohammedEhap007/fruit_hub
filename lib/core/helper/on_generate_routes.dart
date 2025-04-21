@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_app/features/auth/presentation/views/signup_view.dart';
+import 'package:fruit_hub_app/features/best_selling_fruits/presentation/views/best_selling_view.dart';
 import 'package:fruit_hub_app/features/home/presentation/views/home_view.dart';
 
 import '../../features/auth/presentation/views/signin_view.dart';
@@ -18,6 +19,8 @@ Route onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SignupView());
     case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeView());
+    case BestSellingView.routeName:
+      return MaterialPageRoute(builder: (context) => const BestSellingView());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }
