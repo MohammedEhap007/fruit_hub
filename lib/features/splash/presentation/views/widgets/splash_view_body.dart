@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_hub_app/core/services/firebase_auth_service.dart';
 import 'package:fruit_hub_app/core/utils/app_images.dart';
+import 'package:fruit_hub_app/features/home/presentation/views/home_view.dart';
 import 'package:fruit_hub_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 
 import '../../../../../constants.dart';
@@ -48,8 +50,16 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       const Duration(seconds: 2),
       () {
         if (isOnBoardingSeen) {
-          if (mounted) {
-            Navigator.pushReplacementNamed(context, SigninView.routeName);
+          var isLoggedIn = FirebaseAuthService().isLoggedIn();
+
+          if (isLoggedIn) {
+            if (mounted) {
+              Navigator.pushReplacementNamed(context, HomeView.routeName);
+            }
+          } else {
+            if (mounted) {
+              Navigator.pushReplacementNamed(context, SigninView.routeName);
+            }
           }
         } else {
           if (mounted) {
