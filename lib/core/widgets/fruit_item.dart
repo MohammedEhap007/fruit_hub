@@ -6,6 +6,8 @@ import 'package:fruit_hub_app/core/utils/app_text_styles.dart';
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Container(
