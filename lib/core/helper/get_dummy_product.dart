@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:fruit_hub_app/core/entities/product_entity.dart';
 
 ProductEntity getDummyProduct() {
@@ -10,7 +8,6 @@ ProductEntity getDummyProduct() {
     imageUrl:
         'https://image.made-in-china.com/2f0j00uAvTaFrnABcD/High-Quality-Real-Touch-Artificial-Fake-Fruits-for-Party-Decoration.webp',
     code: 'DUMMY001',
-    image: File(''),
     isFeatured: false,
     expirationMonths: 12,
     isOrganic: true,

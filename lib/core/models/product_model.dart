@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:fruit_hub_app/core/entities/product_entity.dart';
 import 'package:fruit_hub_app/core/models/review_model.dart';
 
@@ -8,7 +6,6 @@ class ProductModel {
   final String code;
   final String description;
   final num price;
-  final File image;
   final bool isFeatured;
   String? imageUrl;
   final int expirationMonths;
@@ -23,7 +20,6 @@ class ProductModel {
     required this.code,
     required this.description,
     required this.price,
-    required this.image,
     required this.isFeatured,
     required this.expirationMonths,
     required this.isOrganic,
@@ -40,14 +36,15 @@ class ProductModel {
       code: json['code'],
       description: json['description'],
       price: json['price'],
-      image: File(json['image']),
       isFeatured: json['isFeatured'],
       imageUrl: json['imageUrl'],
       expirationMonths: json['expirationMonths'],
       isOrganic: json['isOrganic'],
       numberOfCalories: json['numberOfCalories'],
       unitAmount: json['unitAmount'],
-      reviews: json['reviews'].map((e) => ReviewModel.fromJson(e)).toList(),
+      reviews: json['reviews'] != null
+          ? List<ReviewModel>.from(json['reviews'].map((e) => ReviewModel.fromJson(e)))
+          : [],
       sellingCount: json['sellingCount'],
     );
   }
@@ -58,7 +55,6 @@ class ProductModel {
       code: code,
       description: description,
       price: price,
-      image: image,
       imageUrl: imageUrl,
       isFeatured: isFeatured,
       expirationMonths: expirationMonths,
