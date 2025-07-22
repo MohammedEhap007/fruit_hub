@@ -1,7 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_app/core/entities/product_entity.dart';
 import 'package:fruit_hub_app/core/utils/app_colors.dart';
-import 'package:fruit_hub_app/core/utils/app_images.dart';
 import 'package:fruit_hub_app/core/utils/app_text_styles.dart';
 
 class FruitItem extends StatelessWidget {
@@ -20,20 +20,15 @@ class FruitItem extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite_outline,
-            ),
-          ),
           Column(
             children: [
               const SizedBox(
                 height: 20,
               ),
               Flexible(
-                child: Image.asset(
-                  Assets.imagesWatermelonTest,
+                child: CachedNetworkImage(
+                  imageUrl: productEntity.imageUrl!,
+                  fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(
@@ -43,7 +38,7 @@ class FruitItem extends StatelessWidget {
                 contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
                 isThreeLine: true,
                 title: Text(
-                  'بطيخ',
+                  productEntity.name,
                   textAlign: TextAlign.right,
                   style: TextStyles.semiBold16.copyWith(
                     color: Color(0XFF0C0D0D),
@@ -53,7 +48,7 @@ class FruitItem extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: '20جنية ',
+                        text: '${productEntity.price} جنيه',
                         style: TextStyles.bold13.copyWith(
                           color: AppColors.secondaryColor,
                         ),
@@ -89,6 +84,12 @@ class FruitItem extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.favorite_outline,
+            ),
           ),
         ],
       ),

@@ -20,9 +20,10 @@ class BestSellingGridViewBlocBuilder extends StatelessWidget {
               child: CustomErrorWidget(text: state.errorMessage));
         } else {
           return Skeletonizer.sliver(
-              child: BestSellingGridView(
-            products: getDummyProducts(count: 10),
-          ));
+            child: BestSellingGridView(
+              products: getDummyProducts(count: 8),
+            ),
+          );
         }
       },
     );
