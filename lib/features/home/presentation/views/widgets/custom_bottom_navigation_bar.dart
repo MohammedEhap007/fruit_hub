@@ -3,8 +3,11 @@ import 'package:fruit_hub_app/features/home/domain/entities/bottom_navigation_ba
 import 'package:fruit_hub_app/features/home/presentation/views/widgets/bottom_navigation_bar_items.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
-
+  const CustomBottomNavigationBar({
+    super.key,
+    required this.onItemTapped,
+  });
+  final ValueChanged<int> onItemTapped;
   @override
   State<CustomBottomNavigationBar> createState() =>
       _CustomBottomNavigationBarState();
@@ -12,13 +15,12 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 375,
       height: 70,
-      decoration: ShapeDecoration(
+      decoration: const ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -36,27 +38,26 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         ],
       ),
       child: Row(
-        children: bottomNavigationBarItems.asMap().entries.map(
-          (item) {
-            var index = item.key;
-            var entity = item.value;
+        children: bottomNavigationBarItems.asMap().entries.map((e) {
+          var index = e.key;
+          var entity = e.value;
 
-            return Expanded(
-              flex: index == selectedIndex ? 3 : 2,
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
-                child: BottomNavigationBarItems(
-                  isSelected: selectedIndex == index,
-                  bottomNavigationBarEntity: entity,
-                ),
+          return Expanded(
+            flex: index == selectedIndex ? 3 : 2,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                  widget.onItemTapped(index);
+                });
+              },
+              child: BottomNavigationBarItems(
+                isSelected: selectedIndex == index,
+                bottomNavigationBarEntity: entity,
               ),
-            );
-          },
-        ).toList(),
+            ),
+          );
+        }).toList(),
       ),
     );
   }
