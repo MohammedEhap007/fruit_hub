@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub_app/core/entities/product_entity.dart';
 import 'package:fruit_hub_app/core/widgets/fruit_item.dart';
 
-class BestSellingGridView extends StatelessWidget {
-  const BestSellingGridView({super.key, required this.products});
+class ProductsGridView extends StatelessWidget {
+  const ProductsGridView({super.key, required this.products, this.productsLimit});
   final List<ProductEntity> products;
+  final int? productsLimit;
 
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
-      itemCount: products.length,
+      itemCount: productsLimit ?? products.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 163 / 214,

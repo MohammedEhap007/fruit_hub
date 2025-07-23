@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_app/features/auth/presentation/views/signup_view.dart';
-import 'package:fruit_hub_app/features/best_selling_fruits/presentation/views/best_selling_view.dart';
+import 'package:fruit_hub_app/features/home/presentation/views/best_selling_view.dart';
 import 'package:fruit_hub_app/features/home/presentation/views/main_view.dart';
 
 import '../../features/auth/presentation/views/signin_view.dart';

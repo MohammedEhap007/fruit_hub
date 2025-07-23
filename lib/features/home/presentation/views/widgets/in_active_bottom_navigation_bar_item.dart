@@ -11,6 +11,9 @@ class InActiveBottomNavigationBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(icon);
+    return Container(
+      color: Colors.transparent,
+      child: SvgPicture.asset(icon),
+    );
   }
 }
