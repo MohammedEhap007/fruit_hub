@@ -24,8 +24,7 @@ class CartItem extends StatelessWidget {
               color: Color(0xFFF3F5F7),
             ),
             child: CachedNetworkImage(
-              imageUrl:
-                  'https://www.udgamschool.com/wp-content/uploads/2023/05/dummy-image-grey-e1398449111870.jpg',
+              imageUrl: cartItemEntity.productEntity.imageUrl!,
             ),
           ),
           SizedBox(width: 17.0),
@@ -37,7 +36,7 @@ class CartItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'تفاح',
+                      cartItemEntity.productEntity.name,
                       style: TextStyles.bold13,
                     ),
                     Spacer(),
@@ -51,7 +50,7 @@ class CartItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '3 كيلو',
+                  '${cartItemEntity.count} كيلو',
                   textAlign: TextAlign.right,
                   style: TextStyles.regular13.copyWith(
                     color: AppColors.secondaryColor,
@@ -62,7 +61,7 @@ class CartItem extends StatelessWidget {
                     CartItemAction(),
                     Spacer(),
                     Text(
-                      '60 جنيه ',
+                      '${cartItemEntity.calculateTotalPrice()} جنيه ',
                       style: TextStyles.bold16.copyWith(
                         color: AppColors.secondaryColor,
                       ),
