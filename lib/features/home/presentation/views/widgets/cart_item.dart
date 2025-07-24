@@ -4,10 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_hub_app/core/utils/app_colors.dart';
 import 'package:fruit_hub_app/core/utils/app_images.dart';
 import 'package:fruit_hub_app/core/utils/app_text_styles.dart';
+import 'package:fruit_hub_app/features/home/domain/entities/cart_item_entity.dart';
 import 'package:fruit_hub_app/features/home/presentation/views/widgets/cart_item_action.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.cartItemEntity});
+
+  final CartItemEntity cartItemEntity;
 
   @override
   Widget build(BuildContext context) {
