@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruit_hub_app/core/helper/build_error_bar.dart';
+import 'package:fruit_hub_app/core/helper/build_snack_bar.dart';
 import 'package:fruit_hub_app/core/widgets/custom_progress_hud.dart';
 import 'package:fruit_hub_app/features/auth/presentation/cubits/signin_cubit/signin_cubit.dart';
 import 'package:fruit_hub_app/features/auth/presentation/views/widgets/signin_view_body.dart';
@@ -17,7 +17,7 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
           Navigator.pushNamed(context, MainView.routeName);
         }
         if (state is SigninFailure) {
-          buildErrorBar(context, state.message);
+          buildSnackBar(context, state.message);
         }
       },
       builder: (context, state) {

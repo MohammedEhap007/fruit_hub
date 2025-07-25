@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub_app/core/utils/app_colors.dart';
 
-void buildErrorBar(BuildContext context, String message) {
+void buildSnackBar(BuildContext context, String message,
+    {bool isError = true}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Colors.red,
+      backgroundColor: isError ? Colors.red : AppColors.lightPrimaryColor,
       elevation: 0.0,
       duration: const Duration(seconds: 3),
       behavior: SnackBarBehavior.floating,
