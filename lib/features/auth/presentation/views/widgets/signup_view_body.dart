@@ -34,7 +34,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
           key: formKey,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               CustomTextFormField(
@@ -44,7 +44,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 keyboardType: TextInputType.name,
                 hintText: 'الاسم كامل',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               CustomTextFormField(
@@ -54,7 +54,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 keyboardType: TextInputType.emailAddress,
                 hintText: 'البريد الإلكتروني',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               PasswordField(
@@ -62,7 +62,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   password = value!;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               TermsAndConditionsWidget(
@@ -70,7 +70,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   isTermsAccepted = value;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               CustomButton(
@@ -99,10 +99,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
                 text: 'إنشاء حساب جديد',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 26,
               ),
-              HaveAnAccountWidget(),
+              const HaveAnAccountWidget(),
             ],
           ),
         ),

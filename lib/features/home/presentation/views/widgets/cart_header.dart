@@ -11,14 +11,14 @@ class CartHeader extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 20.0),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xFFEBF9F1),
       ),
       child: Center(
         child: Text(
           'لديك ${context.watch<CartCubit>().cartEntity.cartItems.length} منتجات في سله التسوق',
           style: TextStyles.regular13.copyWith(
-            color: Color(0xFF1B5E37),
+            color: const Color(0xFF1B5E37),
             height: 0.12,
           ),
         ),

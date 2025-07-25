@@ -29,37 +29,37 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
         horizontal: kHorizontalPadding,
       ),
       child: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: kTopPadding,
                 ),
                 buildAppBar(
                   context,
                   title: 'المنتجات',
                   leading: false,
-                  action: NotificationWidget(),
+                  action: const NotificationWidget(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16.0,
                 ),
-                SearchTextField(),
-                SizedBox(
+                const SearchTextField(),
+                const SizedBox(
                   height: 12.0,
                 ),
                 ProductsViewHeader(
                   productsLength: context.watch<ProductsCubit>().productsLength,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
               ],
             ),
           ),
-          ProductsGridViewBlocBuilder(),
+          const ProductsGridViewBlocBuilder(),
         ],
       ),
     );

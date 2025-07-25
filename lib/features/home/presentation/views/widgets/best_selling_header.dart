@@ -14,15 +14,15 @@ class BestSellingHeader extends StatelessWidget {
           Text(
             'الأكثر مبيعًا',
             style: TextStyles.bold16.copyWith(
-              color: Color(0XFF0C0D0D),
+              color: const Color(0XFF0C0D0D),
             ),
             textAlign: TextAlign.right,
           ),
-          Spacer(),
+          const Spacer(),
           Text(
             'المزيد',
             style: TextStyles.regular13.copyWith(
-              color: Color(0XFF949D9E),
+              color: const Color(0XFF949D9E),
             ),
             textAlign: TextAlign.center,
           )

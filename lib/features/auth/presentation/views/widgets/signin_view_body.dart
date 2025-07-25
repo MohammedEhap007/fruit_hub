@@ -37,7 +37,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               CustomTextFormField(
@@ -47,7 +47,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 keyboardType: TextInputType.emailAddress,
                 hintText: 'البريد الإلكتروني',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               PasswordField(
@@ -55,10 +55,10 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                   password = value!;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
@@ -69,7 +69,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 33,
               ),
               CustomButton(
@@ -85,15 +85,15 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                     }
                   },
                   text: 'تسجيل الدخول'),
-              SizedBox(
+              const SizedBox(
                 height: 33,
               ),
-              DontHaveAnAccountWidget(),
-              SizedBox(
+              const DontHaveAnAccountWidget(),
+              const SizedBox(
                 height: 33,
               ),
-              OrDivider(),
-              SizedBox(
+              const OrDivider(),
+              const SizedBox(
                 height: 16,
               ),
               SocialLoginButton(
@@ -103,7 +103,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 text: 'تسجيل بواسطة جوجل',
                 image: Assets.imagesGoogleIcon,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Platform.isIOS
@@ -115,12 +115,12 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                             },
                             text: 'تسجيل بواسطة أبل',
                             image: Assets.imagesAppleIcon),
-                        SizedBox(
+                        const SizedBox(
                           height: 16,
                         ),
                       ],
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
               SocialLoginButton(
                 onPressed: () {
                   context.read<SigninCubit>().signInWithFacebook();

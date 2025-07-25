@@ -11,12 +11,12 @@ class CustomHomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
-      leading: SizedBox(
+      leading: const SizedBox(
         width: 44,
         height: 44,
         child: CircleAvatar(
           backgroundColor: Color(0XFF5DB957),
-          foregroundImage: const AssetImage(
+          foregroundImage: AssetImage(
             Assets.imagesProfileAvatar,
           ),
         ),
@@ -35,7 +35,7 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
         textAlign: TextAlign.right,
       ),
-      trailing: NotificationWidget(),
+      trailing: const NotificationWidget(),
     );
   }
 }

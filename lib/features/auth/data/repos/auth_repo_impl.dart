@@ -60,7 +60,7 @@ class AuthRepoImpl extends AuthRepo {
       log('Exception in AuthRepoImpl.createUserWithEmailAndPassword: ${e.toString()}');
 
       return left(
-        ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
+        const ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
       );
     }
   }
@@ -91,7 +91,7 @@ class AuthRepoImpl extends AuthRepo {
       log('Exception in AuthRepoImpl.signInWithEmailAndPassword: ${e.toString()}');
 
       return left(
-        ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
+        const ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
       );
     }
   }
@@ -129,7 +129,7 @@ class AuthRepoImpl extends AuthRepo {
       );
 
       return left(
-        ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
+        const ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
       );
     }
   }
@@ -167,7 +167,7 @@ class AuthRepoImpl extends AuthRepo {
       );
 
       return left(
-        ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
+        const ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
       );
     }
   }
@@ -205,7 +205,7 @@ class AuthRepoImpl extends AuthRepo {
       );
 
       return left(
-        ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
+        const ServerFailure('لقد حدث خطأ ما. الرجاء المحاولة مرة اخرى.'),
       );
     }
   }

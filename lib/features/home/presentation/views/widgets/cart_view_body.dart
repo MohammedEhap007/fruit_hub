@@ -20,12 +20,12 @@ class CartViewBody extends StatelessWidget {
       child: Stack(
         children: [
           CustomScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: kTopPadding,
                     ),
                     buildAppBar(
@@ -33,11 +33,11 @@ class CartViewBody extends StatelessWidget {
                       title: 'السلة',
                       leading: false,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16.0,
                     ),
-                    CartHeader(),
-                    SizedBox(
+                    const CartHeader(),
+                    const SizedBox(
                       height: 24.0,
                     ),
                   ],
@@ -62,7 +62,7 @@ class CartViewBody extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: MediaQuery.sizeOf(context).height * 0.07,
-            child: CustomCartButton(),
+            child: const CustomCartButton(),
           ),
         ],
       ),

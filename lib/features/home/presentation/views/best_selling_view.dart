@@ -29,7 +29,7 @@ class BestSellingView extends StatelessWidget {
           title: 'الأكثر مبيعًا',
           action: const NotificationWidget(),
         ),
-        body: BestSellingViewBody(),
+        body: const BestSellingViewBody(),
       ),
     );
   }

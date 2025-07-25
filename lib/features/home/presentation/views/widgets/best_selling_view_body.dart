@@ -20,8 +20,8 @@ class _BestSellingViewBodyState extends State<BestSellingViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
+    return const Padding(
+      padding: EdgeInsets.symmetric(
         horizontal: kHorizontalPadding,
       ),
       child: CustomScrollView(

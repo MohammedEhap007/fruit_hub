@@ -24,7 +24,6 @@ class SocialLoginButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
             side: const BorderSide(
-              width: 1,
               color: Color(0XFFDDDFDF),
             ),
           ),
@@ -32,7 +31,7 @@ class SocialLoginButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         child: ListTile(
-          visualDensity: VisualDensity(
+          visualDensity: const VisualDensity(
             vertical: VisualDensity.minimumDensity,
           ),
           leading: SvgPicture.asset(image),

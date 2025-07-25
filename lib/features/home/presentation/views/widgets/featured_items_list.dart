@@ -9,13 +9,13 @@ class FeaturedItemsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Row(
         children: List.generate(
           4,
           (index) {
-            return Padding(
-              padding: const EdgeInsets.only(left: 8.0),
+            return const Padding(
+              padding: EdgeInsets.only(left: 8.0),
               child: FeaturedItem(),
             );
           },

@@ -33,14 +33,14 @@ class CartItem extends StatelessWidget {
               Container(
                 width: 73,
                 height: 92,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFF3F5F7),
                 ),
                 child: CachedNetworkImage(
                   imageUrl: cartItemEntity.productEntity.imageUrl!,
                 ),
               ),
-              SizedBox(width: 17.0),
+              const SizedBox(width: 17.0),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,7 +52,7 @@ class CartItem extends StatelessWidget {
                           cartItemEntity.productEntity.name,
                           style: TextStyles.bold13,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         InkWell(
                           borderRadius: BorderRadius.circular(8.0),
                           onTap: () {
@@ -78,7 +78,7 @@ class CartItem extends StatelessWidget {
                         CartItemAction(
                           cartItemEntity: cartItemEntity,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Text(
                           '${cartItemEntity.calculateTotalPrice()} جنيه ',
                           style: TextStyles.bold16.copyWith(

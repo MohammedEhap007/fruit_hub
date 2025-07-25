@@ -15,7 +15,6 @@ class SearchTextField extends StatelessWidget {
             color: Color(0x00A00000),
             blurRadius: 9,
             offset: Offset(0, 2),
-            spreadRadius: 0,
           ),
         ],
       ),
@@ -24,7 +23,7 @@ class SearchTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'ابحث عن.......',
           hintStyle: TextStyles.regular13.copyWith(
-            color: Color(0XFF949D9E),
+            color: const Color(0XFF949D9E),
           ),
           prefixIcon: SizedBox(
             width: 20,
@@ -55,8 +54,7 @@ class SearchTextField extends StatelessWidget {
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
-        borderSide: BorderSide(
-          width: 1,
+        borderSide: const BorderSide(
           color: Colors.white,
         ));
   }

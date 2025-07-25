@@ -21,7 +21,7 @@ class CartItemActionButton extends StatelessWidget {
       child: Container(
         width: 24,
         height: 24,
-        padding: EdgeInsets.all(2.0),
+        padding: const EdgeInsets.all(2.0),
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0),

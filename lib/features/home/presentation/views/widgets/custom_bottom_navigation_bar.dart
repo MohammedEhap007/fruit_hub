@@ -33,7 +33,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             color: Color(0x19000000),
             blurRadius: 25,
             offset: Offset(0, -2),
-            spreadRadius: 0,
           ),
         ],
       ),

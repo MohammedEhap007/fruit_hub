@@ -22,7 +22,7 @@ class ProductsRepoImpl extends ProductsRepo {
           .toList();
       return Right(products);
     } catch (e) {
-      return Left(ServerFailure('Failed to get products'));
+      return const Left(ServerFailure('Failed to get products'));
     }
   }
 
@@ -41,7 +41,7 @@ class ProductsRepoImpl extends ProductsRepo {
           .toList();
       return Right(products);
     } catch (e) {
-      return Left(ServerFailure('Failed to get products'));
+      return const Left(ServerFailure('Failed to get products'));
     }
   }
 }

@@ -37,13 +37,13 @@ class FruitItem extends StatelessWidget {
                 height: 24,
               ),
               ListTile(
-                contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
                 isThreeLine: true,
                 title: Text(
                   productEntity.name,
                   textAlign: TextAlign.right,
                   style: TextStyles.semiBold16.copyWith(
-                    color: Color(0XFF0C0D0D),
+                    color: const Color(0XFF0C0D0D),
                   ),
                 ),
                 subtitle: Text.rich(

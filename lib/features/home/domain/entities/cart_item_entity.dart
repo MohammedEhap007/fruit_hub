@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:fruit_hub_app/core/entities/product_entity.dart';
 
+// ignore: must_be_immutable
 class CartItemEntity extends Equatable {
   final ProductEntity productEntity;
   int quantity;
@@ -19,7 +20,10 @@ class CartItemEntity extends Equatable {
   }
 
   int decrementQuantity() {
-    return quantity--;
+    if (quantity > 0) {
+      return quantity--;
+    }
+    return 0;
   }
 
   @override

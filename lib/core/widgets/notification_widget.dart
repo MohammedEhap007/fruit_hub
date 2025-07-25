@@ -13,7 +13,7 @@ class NotificationWidget extends StatelessWidget {
       width: 34,
       height: 34,
       child: CircleAvatar(
-        backgroundColor: Color(0XFFEEF8ED),
+        backgroundColor: const Color(0XFFEEF8ED),
         child: ClipOval(
           child: SvgPicture.asset(
             Assets.imagesNotification,

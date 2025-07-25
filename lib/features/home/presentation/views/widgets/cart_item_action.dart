@@ -33,7 +33,7 @@ class CartItemAction extends StatelessWidget {
         ),
         CartItemActionButton(
           icon: Icons.remove,
-          color: Color(0xFFF3F5F7),
+          color: const Color(0xFFF3F5F7),
           iconColor: Colors.grey,
           onTap: () {
             cartItemEntity.decrementQuantity();

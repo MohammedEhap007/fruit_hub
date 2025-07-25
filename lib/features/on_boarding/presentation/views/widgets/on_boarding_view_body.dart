@@ -54,7 +54,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 : AppColors.primaryColor.withAlpha(128),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 29,
         ),
         Visibility(
@@ -78,7 +78,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 43,
         ),
       ],

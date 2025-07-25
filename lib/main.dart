@@ -15,7 +15,7 @@ import 'package:fruit_hub_app/generated/l10n.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = CustomBlocObserver();
-  await dotenv.load(fileName: ".env");
+  await dotenv.load();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -35,8 +35,8 @@ class FruitHub extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
       ),
-      locale: Locale('ar'),
-      localizationsDelegates: [
+      locale: const Locale('ar'),
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

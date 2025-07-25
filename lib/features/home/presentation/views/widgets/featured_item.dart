@@ -31,7 +31,7 @@ class FeaturedItem extends StatelessWidget {
               ),
               Container(
                 width: itemWidth * 0.5,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: svg.Svg(
                       Assets.imagesFeaturedItemBackground,
@@ -44,7 +44,7 @@ class FeaturedItem extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       Text(
@@ -53,20 +53,20 @@ class FeaturedItem extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Text(
                         'خصم 25%',
                         style: TextStyles.bold19.copyWith(
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 12,
                       ),
                       FeaturedItemButton(
                         onPressed: () {},
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       )
                     ],

@@ -17,13 +17,14 @@ class ProductsViewHeader extends StatelessWidget {
           style: TextStyles.bold16,
           textAlign: TextAlign.right,
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: ShapeDecoration(
+            // ignore: deprecated_member_use
             color: Colors.white.withOpacity(0.10000000149011612),
             shape: RoundedRectangleBorder(
-              side: const BorderSide(width: 1, color: Color(0x66CACECE)),
+              side: const BorderSide(color: Color(0x66CACECE)),
               borderRadius: BorderRadius.circular(4),
             ),
           ),

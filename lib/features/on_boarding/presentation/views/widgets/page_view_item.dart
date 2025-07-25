@@ -67,11 +67,11 @@ class PageViewItem extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 64,
         ),
         title,
-        SizedBox(
+        const SizedBox(
           height: 24,
         ),
         Padding(
