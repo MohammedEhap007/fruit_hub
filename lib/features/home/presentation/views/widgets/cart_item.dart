@@ -7,6 +7,7 @@ import 'package:fruit_hub_app/core/utils/app_images.dart';
 import 'package:fruit_hub_app/core/utils/app_text_styles.dart';
 import 'package:fruit_hub_app/features/home/domain/entities/cart_item_entity.dart';
 import 'package:fruit_hub_app/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
+import 'package:fruit_hub_app/features/home/presentation/cubits/cart_item_cubit/cart_item_cubit.dart';
 import 'package:fruit_hub_app/features/home/presentation/views/widgets/cart_item_action.dart';
 
 class CartItem extends StatelessWidget {
@@ -16,69 +17,83 @@ class CartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-        children: [
-          Container(
-            width: 73,
-            height: 92,
-            decoration: BoxDecoration(
-              color: Color(0xFFF3F5F7),
-            ),
-            child: CachedNetworkImage(
-              imageUrl: cartItemEntity.productEntity.imageUrl!,
-            ),
-          ),
-          SizedBox(width: 17.0),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+    return BlocBuilder<CartItemCubit, CartItemState>(
+      buildWhen: (previous, current) {
+        if (current is CartItemUpdated) {
+          if (current.cartItemEntity == cartItemEntity) {
+            return true;
+          }
+        }
+        return false;
+      },
+      builder: (context, state) {
+        return IntrinsicHeight(
+          child: Row(
+            children: [
+              Container(
+                width: 73,
+                height: 92,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF3F5F7),
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: cartItemEntity.productEntity.imageUrl!,
+                ),
+              ),
+              SizedBox(width: 17.0),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      cartItemEntity.productEntity.name,
-                      style: TextStyles.bold13,
+                    Row(
+                      children: [
+                        Text(
+                          cartItemEntity.productEntity.name,
+                          style: TextStyles.bold13,
+                        ),
+                        Spacer(),
+                        InkWell(
+                          borderRadius: BorderRadius.circular(8.0),
+                          onTap: () {
+                            context
+                                .read<CartCubit>()
+                                .removeCartItem(cartItemEntity);
+                          },
+                          child: SvgPicture.asset(
+                            Assets.imagesTrashIcon,
+                          ),
+                        )
+                      ],
                     ),
-                    Spacer(),
-                    InkWell(
-                      borderRadius: BorderRadius.circular(8.0),
-                      onTap: () {
-                        context
-                            .read<CartCubit>()
-                            .removeCartItem(cartItemEntity);
-                      },
-                      child: SvgPicture.asset(
-                        Assets.imagesTrashIcon,
-                      ),
-                    )
-                  ],
-                ),
-                Text(
-                  '${cartItemEntity.count} كيلو',
-                  textAlign: TextAlign.right,
-                  style: TextStyles.regular13.copyWith(
-                    color: AppColors.secondaryColor,
-                  ),
-                ),
-                Row(
-                  children: [
-                    CartItemAction(),
-                    Spacer(),
                     Text(
-                      '${cartItemEntity.calculateTotalPrice()} جنيه ',
-                      style: TextStyles.bold16.copyWith(
+                      '${cartItemEntity.quantity} كيلو',
+                      textAlign: TextAlign.right,
+                      style: TextStyles.regular13.copyWith(
                         color: AppColors.secondaryColor,
                       ),
                     ),
+                    Row(
+                      children: [
+                        CartItemAction(
+                          cartItemEntity: cartItemEntity,
+                        ),
+                        Spacer(),
+                        Text(
+                          '${cartItemEntity.calculateTotalPrice()} جنيه ',
+                          style: TextStyles.bold16.copyWith(
+                            color: AppColors.secondaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub_app/constants.dart';
 import 'package:fruit_hub_app/core/widgets/custom_app_bar.dart';
-import 'package:fruit_hub_app/core/widgets/custom_button.dart';
 import 'package:fruit_hub_app/core/widgets/custom_divider.dart';
 import 'package:fruit_hub_app/features/home/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:fruit_hub_app/features/home/presentation/views/widgets/cart_header.dart';
 import 'package:fruit_hub_app/features/home/presentation/views/widgets/cart_items_list.dart';
+import 'package:fruit_hub_app/features/home/presentation/views/widgets/custom_cart_button.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -28,7 +28,11 @@ class CartViewBody extends StatelessWidget {
                     SizedBox(
                       height: kTopPadding,
                     ),
-                    buildAppBar(context, title: 'السلة'),
+                    buildAppBar(
+                      context,
+                      title: 'السلة',
+                      leading: false,
+                    ),
                     SizedBox(
                       height: 16.0,
                     ),
@@ -45,7 +49,7 @@ class CartViewBody extends StatelessWidget {
                     : const CustomDivider(),
               ),
               CartItemsList(
-                cartItems: context.read<CartCubit>().cartEntity.cartItems,
+                cartItems: context.watch<CartCubit>().cartEntity.cartItems,
               ),
               SliverToBoxAdapter(
                 child: context.read<CartCubit>().cartEntity.cartItems.isEmpty
@@ -58,10 +62,7 @@ class CartViewBody extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: MediaQuery.sizeOf(context).height * 0.07,
-            child: CustomButton(
-              onPressed: () {},
-              text: 'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه',
-            ),
+            child: CustomCartButton(),
           ),
         ],
       ),
